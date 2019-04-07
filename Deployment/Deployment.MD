@@ -8,11 +8,4 @@ In order to maintain an application long term. Following are the few reasons
 
 Sample Implementation
 
-```mermaid
-graph LR
-A[feature] -- validation --> B((Dev))
-C((Pre-Prod))
-A -- validation --> C 
-B --> D{Production}
-C --> D
-```
+<img width="575" alt="Screen Shot 2019-04-06 at 8 12 59 PM" src="https://user-images.githubusercontent.com/6847115/55678065-9fc8d580-58a8-11e9-83ec-ccf05c798dc2.png">
