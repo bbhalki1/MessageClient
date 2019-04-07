@@ -11,8 +11,15 @@ redisClient = Redis(host='redis', port=6379)
 def hello():
     return 'Hello World!'
 
+
+'''
+@author:  Badri
+@method:  post_message
+@request: `/messages`
+@method : POST
+'''
 @app.route('/messages', methods = ['POST'])
-def put_message():
+def post_message():
     store_messages = {}
     if request.headers['Content-Type'] == 'application/json':
         d = request.json
@@ -23,6 +30,12 @@ def put_message():
         return json.dumps({"error" : "Unsupported Media Type"},indent = 2)
 
 
+'''
+@author:  Badri
+@method:  get_message
+@request: `/messages/<digestId>`
+@method : GET
+'''
 @app.route('/messages/<string:digestId>', methods = ['GET'])
 def get_message(digestId):
     mess = redisClient.hget("Messages",digestId)
